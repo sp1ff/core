@@ -45,6 +45,8 @@ LDADD = ../../libpromises/libpromises.la libtest.la
 # implementation, then we are pretty sure that they will be overriden by
 # our local implementation. So we include *everything*...
 LIBS = $(CORE_LIBS)
+# protocol_test relies on cf-serverd-functions which can rely on libsystemd so need SYSTEMD_SOCKET_LIBS here
+LIBS += $(SYSTEMD_SOCKET_LIBS)
 AM_LDFLAGS = $(CORE_LDFLAGS)
 
 AM_CFLAGS = $(PTHREAD_CFLAGS)
